@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="Environment python 3.9.5 ansible 4.4.0   Prepare repositoryCollectionI create a repository named: btsg.my_ansible_collection. Which has one role called print_hello_message This is the repository stand">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ansible-collection from Github private repository">
+<meta property="og:url" content="https://blog.btsg.app/ansible-collectionifrom-github-private-repository/index.html">
+<meta property="og:site_name" content="BT&#39;s blog">
+<meta property="og:description" content="Environment python 3.9.5 ansible 4.4.0   Prepare repositoryCollectionI create a repository named: btsg.my_ansible_collection. Which has one role called print_hello_message This is the repository stand">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-22T00:20:07.000Z">
+<meta property="article:modified_time" content="2023-05-04T15:24:45.302Z">
+<meta property="article:author" content="Bryant Tseng">
+<meta property="article:tag" content="ansible">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>ansible-collection from Github private repository</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">tags</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/docker-networktype/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&text=ansible-collection from Github private repository"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&is_video=false&description=ansible-collection from Github private repository"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ansible-collection from Github private repository&body=Check out this article: https://blog.btsg.app/ansible-collectionifrom-github-private-repository/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&name=ansible-collection from Github private repository&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&t=ansible-collection from Github private repository"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Environment"><span class="toc-number">1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prepare-repository"><span class="toc-number">2.</span> <span class="toc-text">Prepare repository</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">2.1.</span> <span class="toc-text">Collection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#script-and-playbook"><span class="toc-number">3.</span> <span class="toc-text">script and playbook</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Playbook"><span class="toc-number">3.0.1.</span> <span class="toc-text">Playbook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#print-message"><span class="toc-number">3.0.2.</span> <span class="toc-text">print_message</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requirements-yml"><span class="toc-number">3.0.3.</span> <span class="toc-text">requirements.yml</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-collection"><span class="toc-number">4.</span> <span class="toc-text">Install collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-playbook"><span class="toc-number">5.</span> <span class="toc-text">Run playbook</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        ansible-collection from Github private repository
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Bryant Tseng</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-08-22T00:20:07.000Z" itemprop="datePublished">2021-08-22</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/ansible/" rel="tag">ansible</a>, <a class="tag-link-link" href="/tags/git/" rel="tag">git</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h2><ul>
+<li>python 3.9.5</li>
+<li>ansible 4.4.0</li>
+</ul>
+<hr>
+<h2 id="Prepare-repository"><a href="#Prepare-repository" class="headerlink" title="Prepare repository"></a>Prepare repository</h2><h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><p>I create a repository named: <em>btsg.my_ansible_collection</em>.</p>
+<p>Which has one role called <em>print_hello_message</em></p>
+<p>This is the repository stands for our collection.</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/btsg.my_ansible_collection tree -L 2 -I venv</span><br><span class="line">.</span><br><span class="line">├── galaxy.yml</span><br><span class="line">├── plugins</span><br><span class="line">│   └── README.md</span><br><span class="line">├── README.md</span><br><span class="line">├── requirements.txt</span><br><span class="line">└── roles</span><br><span class="line">└── print_hello_message</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Inside the <em>print_hello_message</em> is a simple task that would print the message.</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tasks file for print_hello_message</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">print</span> <span class="string">hello</span> <span class="string">message</span></span><br><span class="line">  <span class="attr">debug:</span></span><br><span class="line">  <span class="attr">msg:</span> <span class="string">"this is hello message from btsg.my_ansible_collection"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>We can then use this role in other playbook</p>
+<hr>
+<h2 id="script-and-playbook"><a href="#script-and-playbook" class="headerlink" title="script and playbook"></a>script and playbook</h2><p>This is the repo named <em>my_ansible_script</em>.</p>
+<p>Which contains a playbook called <em>message.yml</em> and a role named <em>print_message</em></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/my_ansible_script tree -L 2 -I venv</span><br><span class="line">.</span><br><span class="line">├── playbooks</span><br><span class="line">│   └── message.yml</span><br><span class="line">├── requirements.txt</span><br><span class="line">├── requirements.yml</span><br><span class="line">└── roles</span><br><span class="line">└── print_message</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="Playbook"><a href="#Playbook" class="headerlink" title="Playbook"></a>Playbook</h4><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Print</span> <span class="string">messages</span></span><br><span class="line">  <span class="attr">hosts:</span> <span class="string">localhost</span></span><br><span class="line">  <span class="attr">gather_facts:</span> <span class="literal">False</span></span><br><span class="line">  <span class="attr">roles:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">roles/print_message</span></span><br><span class="line">    <span class="attr">vars:</span></span><br><span class="line">      <span class="attr">the_message:</span> <span class="string">"What's up?"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">role:</span> <span class="string">btsg.my_ansible_collection.print_hello_message</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="print-message"><a href="#print-message" class="headerlink" title="print_message"></a>print_message</h4><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">-</span> <span class="bullet">-</span></span><br><span class="line"><span class="comment"># tasks file for print_message</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">print</span> <span class="string">message</span></span><br><span class="line">  <span class="attr">debug:</span></span><br><span class="line">  <span class="attr">msg:</span> <span class="string">"This is the message from my_ansible_script: <span class="template-variable">{{ the_message }}</span>"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Also inside this repo, there’s a file named <em>requirements.yml</em>. This is the file that contains the collection information which will be used to install the collection.</p>
+<p>Inside this file we put the information of our collection repo located in github.</p>
+<h4 id="requirements-yml"><a href="#requirements-yml" class="headerlink" title="requirements.yml"></a>requirements.yml</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">collections:</span><br><span class="line">- name: git@github.com:BryantTseng/btsg.my_ansible_collection.git</span><br><span class="line">  type: git</span><br><span class="line">  version: main</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="Install-collection"><a href="#Install-collection" class="headerlink" title="Install collection"></a>Install collection</h2><p>install collection</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-galaxy collection install -r requirements.yml</span><br></pre></td></tr></tbody></table></figure>
+<p>check installed collection</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible-galaxy collection list</span><br></pre></td></tr></tbody></table></figure>
+<p>You can see a collection installed under ~/.ansible/collection/ansible_collections</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /home/btsg/.ansible/collections/ansible_collections</span></span><br><span class="line">Collection Version</span><br><span class="line"> - - - - - - - - - - - - - - - - -</span><br><span class="line">btsg.my_ansible_collection 1.0.0</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="Run-playbook"><a href="#Run-playbook" class="headerlink" title="Run playbook"></a>Run playbook</h2><p>After installing the collection, we can now run the playbook that uses the collection’s role</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">~/workspace/my_ansible_script ansible-playbook playbooks/message.yml</span><br><span class="line">[WARNING]: No inventory was parsed, only implicit localhost is available</span><br><span class="line">[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match <span class="string">'all'</span></span><br><span class="line">PLAY [Print messages] *********************************************************</span><br><span class="line">TASK [print_message : <span class="built_in">print</span> message] *****************************************</span><br><span class="line">ok: [localhost] =&gt; {</span><br><span class="line"><span class="string">"msg"</span>: <span class="string">"This is the message from my_ansible_script: What's up?"</span></span><br><span class="line">}</span><br><span class="line">TASK [btsg.my_ansible_collection.print_hello_message : <span class="built_in">print</span> hello message] *******************************************************************</span><br><span class="line">ok: [localhost] =&gt; {</span><br><span class="line"><span class="string">"msg"</span>: <span class="string">"this is hello message from btsg.my_ansible_collection"</span></span><br><span class="line">}</span><br><span class="line">PLAY RECAP ********************************************************************</span><br><span class="line">localhost : ok=2 changed=0 unreachable=0 failed=0 skipped=0 rescued=0 ignored=0</span><br></pre></td></tr></tbody></table></figure>
+<p>As the result, we can see that the playbook uses the imported role from the collection.</p>
+
+  </div>
+</article>
+
+    <div class="blog-post-comments">
+        <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+    </div>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/tags/">tags</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Environment"><span class="toc-number">1.</span> <span class="toc-text">Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prepare-repository"><span class="toc-number">2.</span> <span class="toc-text">Prepare repository</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection"><span class="toc-number">2.1.</span> <span class="toc-text">Collection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#script-and-playbook"><span class="toc-number">3.</span> <span class="toc-text">script and playbook</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Playbook"><span class="toc-number">3.0.1.</span> <span class="toc-text">Playbook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#print-message"><span class="toc-number">3.0.2.</span> <span class="toc-text">print_message</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requirements-yml"><span class="toc-number">3.0.3.</span> <span class="toc-text">requirements.yml</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-collection"><span class="toc-number">4.</span> <span class="toc-text">Install collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-playbook"><span class="toc-number">5.</span> <span class="toc-text">Run playbook</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&text=ansible-collection from Github private repository"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&is_video=false&description=ansible-collection from Github private repository"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ansible-collection from Github private repository&body=Check out this article: https://blog.btsg.app/ansible-collectionifrom-github-private-repository/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&title=ansible-collection from Github private repository"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&name=ansible-collection from Github private repository&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://blog.btsg.app/ansible-collectionifrom-github-private-repository/&t=ansible-collection from Github private repository"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2023
+    Bryant Tseng
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/tags/">tags</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEMV5YG8GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LEMV5YG8GL');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'blog-srhfa4ktu8';
+
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+<!-- utterances Comments -->
+
+</body>
+</html>
